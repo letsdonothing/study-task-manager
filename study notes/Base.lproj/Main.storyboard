@@ -41,9 +41,7 @@
                             <outlet property="delegate" destination="pqU-o7-MC6" id="DfJ-x8-Ixa"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="Fb3-LF-nDa"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="List of tasks" id="4bC-Jz-hjE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D22-Y9-gSG">
                             <connections>
@@ -51,7 +49,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x23-tj-vwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

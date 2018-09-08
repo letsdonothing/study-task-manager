@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TableViewController: UITableViewController {
     
-    var notes: [String] = []
+    var realm: Realm!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        realm = try! Realm()
+        
+       // print(Realm.Configuration.defaultConfiguration.fileURL)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,14 +33,13 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return self.realm.objects(Task.self).count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskIdentifier", for: indexPath)
 
-        cell.textLabel?.text = notes[indexPath.row]
+        cell.textLabel?.text = self.realm.objects(Task.self)[indexPath.row].desc
         
         return cell
     }
@@ -49,14 +53,19 @@ class TableViewController: UITableViewController {
         let addButton = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (action) in
             guard let text = alert.textFields?.first?.text else { return }
             if !text.isEmpty {
-                self.notes.append(text)
+                let task = Task()
+                task.desc = text
+                task.date = Date()
+                
+                try! self.realm.write {
+                    self.realm.add(task)
+                }
+                
                 self.tableView.reloadData()
             }
         }
         
-        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) in
-            
-        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
         
         alert.addAction(addButton)
         alert.addAction(cancelButton)
@@ -67,7 +76,9 @@ class TableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.notes.remove(at: indexPath.row)
+            try! self.realm?.write {
+                self.realm?.delete((self.realm?.objects(Task.self)[indexPath.row])!)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

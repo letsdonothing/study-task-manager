@@ -16,6 +16,7 @@
 		E238F25921412DAD00DFA9D7 /* study_notesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F25821412DAD00DFA9D7 /* study_notesTests.swift */; };
 		E238F26421412DAD00DFA9D7 /* study_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F26321412DAD00DFA9D7 /* study_notesUITests.swift */; };
 		E238F272214130F000DFA9D7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F271214130F000DFA9D7 /* TableViewController.swift */; };
+		E238F2742142FAC800DFA9D7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F2732142FAC800DFA9D7 /* Task.swift */; };
 		ECECAC77BB704B67E78835AF /* Pods_study_notesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE970AAFF06912F43CAC627 /* Pods_study_notesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		E238F26321412DAD00DFA9D7 /* study_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = study_notesUITests.swift; sourceTree = "<group>"; };
 		E238F26521412DAD00DFA9D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E238F271214130F000DFA9D7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E238F2732142FAC800DFA9D7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EF227A6CBFA81AA500BDCA92 /* Pods_study_notesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study_notesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD0E773146FE8A148B96B52 /* Pods_study_notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study_notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 				E238F24721412DAD00DFA9D7 /* Main.storyboard */,
 				E238F24A21412DAD00DFA9D7 /* Assets.xcassets */,
 				E238F271214130F000DFA9D7 /* TableViewController.swift */,
+				E238F2732142FAC800DFA9D7 /* Task.swift */,
 				E238F24C21412DAD00DFA9D7 /* LaunchScreen.storyboard */,
 				E238F24F21412DAD00DFA9D7 /* Info.plist */,
 			);
@@ -304,15 +307,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-study notes-checkManifestLockResult.txt",
 			);
@@ -326,15 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-study notesUITests-checkManifestLockResult.txt",
 			);
@@ -348,16 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-study notes/Pods-study notes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -372,15 +363,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-study notesTests-checkManifestLockResult.txt",
 			);
@@ -397,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E238F24421412DAD00DFA9D7 /* AppDelegate.swift in Sources */,
+				E238F2742142FAC800DFA9D7 /* Task.swift in Sources */,
 				E238F272214130F000DFA9D7 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
