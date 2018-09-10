@@ -13,4 +13,5 @@ class Task : Object {
     @objc dynamic var desc: String?
     @objc dynamic var subject: String?
     @objc dynamic var date: Date?
+    @objc dynamic var deadLine: Date?
 }
