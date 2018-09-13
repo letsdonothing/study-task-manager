@@ -9,8 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
-    
     var button = DropDownBtn()
+    let db = DBService.shared
+    
+    @IBOutlet weak var taskDescription: UITextView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var addTaskButton: UIButton!
     
     var buttonWidth: CGFloat {
         return UIScreen.main.bounds.width - 32
@@ -79,12 +83,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    @IBOutlet weak var taskDescription: UITextView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var addTaskButton: UIButton!
-    
     @IBAction func addTaskAction(_ sender: Any) {
-        
         taskDescription.endEditing(true)
         
         if (taskDescription.text.isEmpty || taskDescription.text == "Enter description of the task..") {
@@ -100,7 +99,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-        DBService().setTask(description: taskDescription.text, subject: (button.titleLabel?.text)!, till: datePicker.date)
+        db.setTask(description: taskDescription.text, subject: (button.titleLabel?.text)!, till: datePicker.date)
 
         self.navigationController?.popViewController(animated: true)
     }

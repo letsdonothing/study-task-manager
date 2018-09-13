@@ -19,24 +19,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="zh9-Hf-xnk" style="IBUITableViewCellStyleDefault" id="Rbx-kU-G9r">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rbx-kU-G9r" id="5XF-2Q-Vbu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="82" id="SSd-MR-sHj" customClass="TaskTableViewCell" customModule="study_notes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SSd-MR-sHj" id="a2b-5g-QBf">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="81.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zh9-Hf-xnk">
-                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35e-An-s48">
+                                            <rect key="frame" x="16" y="16" width="288" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="taG-jH-d6D"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-eB-DBj">
+                                            <rect key="frame" x="16" y="47" width="112" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="oHF-Rk-E6f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do in: Task expire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPK-S3-5M4">
+                                            <rect key="frame" x="205" y="51" width="99" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="xUH-Dt-Ciz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="35e-An-s48" firstAttribute="top" secondItem="a2b-5g-QBf" secondAttribute="top" constant="16" id="5pT-Gs-gKg"/>
+                                        <constraint firstItem="AMh-eB-DBj" firstAttribute="top" secondItem="35e-An-s48" secondAttribute="bottom" constant="10" id="H7J-5X-1se"/>
+                                        <constraint firstItem="AMh-eB-DBj" firstAttribute="leading" secondItem="a2b-5g-QBf" secondAttribute="leading" constant="16" id="MgF-kr-IBY"/>
+                                        <constraint firstItem="35e-An-s48" firstAttribute="leading" secondItem="a2b-5g-QBf" secondAttribute="leading" constant="16" id="VBc-wi-hb9"/>
+                                        <constraint firstAttribute="trailing" secondItem="AMh-eB-DBj" secondAttribute="trailing" constant="192" id="dvL-UM-Tqs"/>
+                                        <constraint firstAttribute="trailing" secondItem="BPK-S3-5M4" secondAttribute="trailing" constant="16" id="jG7-v4-3MR"/>
+                                        <constraint firstAttribute="bottom" secondItem="BPK-S3-5M4" secondAttribute="bottom" constant="18.5" id="m0g-WB-9zM"/>
+                                        <constraint firstItem="BPK-S3-5M4" firstAttribute="top" secondItem="35e-An-s48" secondAttribute="bottom" constant="14" id="mGu-gc-mmH"/>
+                                        <constraint firstItem="BPK-S3-5M4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AMh-eB-DBj" secondAttribute="trailing" constant="8" symbolic="YES" id="nHp-5I-DJc"/>
+                                        <constraint firstAttribute="trailing" secondItem="35e-An-s48" secondAttribute="trailing" constant="16" id="vp7-MQ-EYk"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <viewLayoutGuide key="safeArea" id="wBb-uv-6pj"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="35e-An-s48" id="3dN-oe-05J"/>
+                                    <outlet property="expireeLabel" destination="BPK-S3-5M4" id="nMy-LG-11x"/>
+                                    <outlet property="subjectLabel" destination="AMh-eB-DBj" id="0ES-yD-Zm4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="List of tasks" id="4bC-Jz-hjE">
@@ -49,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x23-tj-vwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="23"/>
+            <point key="canvasLocation" x="358.125" y="22.183098591549296"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B8U-US-wfG">

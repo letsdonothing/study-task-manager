@@ -9,14 +9,11 @@
 import UIKit
 import RealmSwift
 
-
 class TableViewController: UITableViewController {
+    let db = DBService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,15 +30,21 @@ class TableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DBService().countOfTasks
+        return db.tasks.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = DBService().getTask(at: indexPath.row).desc
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskTableViewCell
+        
+        cell.descriptionLabel?.text = db.tasks[indexPath.row].desc
+        cell.subjectLabel?.text = db.tasks[indexPath.row].subject
+        cell.expireeLabel?.text = humanReadable(time: expireeTime(fromDate: db.tasks[indexPath.row].deadLine))
         
         return cell
     }
@@ -49,9 +52,45 @@ class TableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            DBService().eraseTask(at: indexPath.row)
+            db.eraseTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+    }
+    
+    func expireeTime(fromDate: Date?) -> (Int, String, Bool) {
+        let seconds = Int(floor((fromDate?.timeIntervalSinceNow) ?? 0))
+        let expired = seconds < 0
+        
+        guard abs(seconds) >= 60 else {
+            return (seconds, "second", expired)
+        }
+        let minutes = abs(seconds) / 60
+        
+        guard minutes >= 60 else {
+            return (minutes, "minute", expired)
+        }
+        let hours = minutes / 60
+        
+        guard hours >= 24 else {
+            return (hours, "hour", expired)
+        }
+        let days = hours / 24
+        
+        guard days >= 30 else {
+            return (days, "day", expired)
+        }
+        let months = days / 30
+        
+        guard months >= 12 else {
+            return (months, "month", expired)
+        }
+        
+        return (months / 12, "year", expired)
+    }
+    
+    func humanReadable(time: (count: Int, unit: String, expired: Bool)) -> String {
+        return (time.expired ? "Overdue for: " : "To do in: ") + String(time.count) + " " + time.unit + (abs(time.count) > 1 ? "s" : "")
     }
     
     

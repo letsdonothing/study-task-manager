@@ -11,21 +11,19 @@ import UIKit
 import RealmSwift
 
 class DBService {
+    static let shared = DBService()
     
-    let realm = try! Realm()
+    private var realm: Realm
+    var tasks: [Task]
+    
+    private init() {
+        realm = try! Realm()
+        tasks = Array(realm.objects(Task.self))
+    }
     
     // print(Realm.Configuration.defaultConfiguration.fileURL)
     
-    var countOfTasks: Int {
-        return realm.objects(Task.self).count
-    }
-    
-    func getTask(at: Int) -> Task {
-        return realm.objects(Task.self)[at]
-    }
-    
     func setTask(description: String, subject: String, till: Date) {
-        
         let task = Task()
         
         task.desc = description
@@ -33,15 +31,19 @@ class DBService {
         task.deadLine = till
         task.date = Date()
         
-        try! self.realm.write {
-            self.realm.add(task)
+        try! realm.write {
+            realm.add(task)
         }
+        
+        tasks.append(task)
     }
     
     func eraseTask(at: Int) {
         try! realm.write {
-            realm.delete(self.realm.objects(Task.self)[at])
+            realm.delete(realm.objects(Task.self)[at])
         }
         
+        tasks.remove(at: at)
     }
 }
+

@@ -20,6 +20,7 @@
 		E238F27F2145863100DFA9D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F27E2145863100DFA9D7 /* ViewController.swift */; };
 		E238F2812145999900DFA9D7 /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F2802145999900DFA9D7 /* DropDownButton.swift */; };
 		E238F2832145A6FC00DFA9D7 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238F2822145A6FC00DFA9D7 /* DBService.swift */; };
+		E267FF8721491D1700289A28 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267FF8521491D1700289A28 /* TaskTableViewCell.swift */; };
 		ECECAC77BB704B67E78835AF /* Pods_study_notesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE970AAFF06912F43CAC627 /* Pods_study_notesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		E238F27E2145863100DFA9D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E238F2802145999900DFA9D7 /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		E238F2822145A6FC00DFA9D7 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		E267FF8521491D1700289A28 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		EF227A6CBFA81AA500BDCA92 /* Pods_study_notesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study_notesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD0E773146FE8A148B96B52 /* Pods_study_notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study_notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E238F24321412DAD00DFA9D7 /* AppDelegate.swift */,
+				E267FF8521491D1700289A28 /* TaskTableViewCell.swift */,
 				E238F24721412DAD00DFA9D7 /* Main.storyboard */,
 				E238F2822145A6FC00DFA9D7 /* DBService.swift */,
 				E238F27E2145863100DFA9D7 /* ViewController.swift */,
@@ -394,6 +397,7 @@
 			files = (
 				E238F2812145999900DFA9D7 /* DropDownButton.swift in Sources */,
 				E238F27F2145863100DFA9D7 /* ViewController.swift in Sources */,
+				E267FF8721491D1700289A28 /* TaskTableViewCell.swift in Sources */,
 				E238F24421412DAD00DFA9D7 /* AppDelegate.swift in Sources */,
 				E238F2742142FAC800DFA9D7 /* Task.swift in Sources */,
 				E238F272214130F000DFA9D7 /* TableViewController.swift in Sources */,
